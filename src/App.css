@@ -1,0 +1,158 @@
+body {
+  background-color: #151515;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 5em;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  width: 225px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+body:before {
+  left:0;
+  background-image: url('https://static-mh.content.disney.io/starwars/assets/background/bg_starsL-fd4661a3ccea.jpg') ;
+}
+
+body:after {
+  right: 0;
+  background-position: top right;
+  background-image: url('https://static-mh.content.disney.io/starwars/assets/background/bg_starsR-655c85e404d4.jpg');
+}
+
+input {
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 22px;
+}
+
+.Search {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2em;
+}
+
+.Search:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-image: url(https://static-mh.content.disney.io/starwars/assets/utility/icon_close-3030e2d69d2e.png);
+  background-position-y: -43px;
+}
+
+.App {
+  text-align: center;
+}
+
+.Card {
+  border-radius: 10px;
+  max-width: 350px;
+  background-color: #222;
+  color: white;
+  border: 1px solid white;
+  margin: 0 auto;
+  position: relative;
+}
+
+.Card_inner {
+  background-color: rgba(170,170,170,0.25);
+  margin: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  border: 2px #e15021 solid;
+  padding: 0 10px;
+}
+
+.Card_header {
+  display: flex;
+  padding: 1em 0;
+}
+
+.Card_logo {
+  width: 30%;
+}
+
+.Card_name {
+  margin: auto 0 auto auto;
+}
+
+.Card_stat {
+
+  position: relative;
+  text-align: left;
+  border-top: 1px solid #ddd;
+  margin-top: 0;
+  padding: .5em 1em;  
+}
+
+.Card_stat:first-child {
+  border-top: none;
+}
+
+.Card_statChild {
+  float: right;
+}
+
+.Card_stats {
+  padding-left: 0;
+  list-style: none;
+}
+
+.Card_image {
+  border-radius: 10px;
+}
+
+.respImage {
+  max-width: 100%;
+}
+
+
+.CardBack {
+  background-image: url('http://www.cardgamedb.com/forums/uploads/sw/starwars-image-missing.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.flipContainer {
+  cursor: pointer;
+  height: 485px;
+  perspective: 600;
+  position: relative;
+  width: 352px;
+  margin: 0 auto;
+  z-index: -1;
+}
+.flipContainer_flipper {
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  width: 100%;
+}
+.flipContainer_flipper.flip {
+  transform: rotateY(180deg);
+}
+.flipContainer_flipper .flipContainer_side {
+  backface-visibility: hidden;
+  border-radius: 6px;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+.flipContainer_flipper .flipContainer_side-back {
+  transform: rotateY(180deg);
+}
