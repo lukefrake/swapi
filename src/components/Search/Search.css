@@ -1,0 +1,24 @@
+.search {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2em;
+}
+
+.search:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-image: url(https://static-mh.content.disney.io/starwars/assets/utility/icon_close-3030e2d69d2e.png);
+  background-position-y: -43px;
+}
+
+/* Not following BEM due to plugin */
+.search input {
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 22px;
+}
