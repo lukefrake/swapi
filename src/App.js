@@ -10,6 +10,7 @@ class App extends Component {
       searchResults: [],
       inputVal: '',
       item: {},
+      searching: null
     };
     this.swapi = this.swapi.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -24,8 +25,16 @@ class App extends Component {
   // Takes an event and lookup in the SWAPI
   // @value {string} [value] the value to be searched
   swapi (value = "") {
-    Swapi.get(`https://swapi.co/api/people/?search=${value}`).then((result) => {
-      this.setState({searchResults: result.results});
+    // Check if we're already looking
+    if (this.state.searching != null) {
+      // Cancel the previous request
+      clearTimeout(this.state.searching);
+    }
+
+    this.setState({
+      searching: setTimeout(() => {Swapi.get(`https://swapi.co/api/people/?search=${value}`).then((result) => {
+        this.setState({searchResults: result.results, searching: null});
+      })}, 200)
     });
   }
 
@@ -36,7 +45,7 @@ class App extends Component {
       value: event.target.value,
       flip: '',
     });
-    this.swapi( event.target.value );
+    this.swapi(event.target.value)
   }
 
   // Maintain the state of the chosen character and handle the card state
