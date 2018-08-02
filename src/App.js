@@ -61,9 +61,9 @@ class App extends Component {
         </div>
         <div className="flipContainer">
           <div className={`flipContainer_flipper ${this.state.flip}`}>
-            <div className="flipContainer_side CardBack">
+            <div className="flipContainer_side Card CardBack ">
             </div>
-            <div className="Card flipContainer_side flipContainerback">
+            <div className="Card flipContainer_side flipContainerback flipContainer_side-back">
               <div className="Card_inner">
                 <div className="Card_header">
                   <div className="Card_logo">
